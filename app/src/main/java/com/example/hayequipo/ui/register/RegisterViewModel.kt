@@ -1,4 +1,4 @@
-package com.example.hayequipo.ui.login
+package com.example.hayequipo.ui.register
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -8,8 +8,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor() : ViewModel(){
+class RegisterViewModel @Inject constructor() : ViewModel(){
 
     var username by mutableStateOf("")
     var password by mutableStateOf("")
+    var isOwner by mutableStateOf(false)
 }

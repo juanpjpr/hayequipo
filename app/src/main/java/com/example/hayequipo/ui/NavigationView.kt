@@ -9,6 +9,8 @@ import com.example.hayequipo.ui.login.LoginViewModel
 import com.example.hayequipo.ui.screens.home.HomeScreen
 import com.example.hayequipo.ui.screens.home.HomeViewModel
 import com.example.hayequipo.ui.login.LoginScreen
+import com.example.hayequipo.ui.register.RegisterScreen
+import com.example.hayequipo.ui.register.RegisterViewModel
 
 @Composable
 fun NavigationView() {
@@ -25,6 +27,12 @@ fun NavigationView() {
         composable("home") {
             val viewModel = hiltViewModel<HomeViewModel>()
             HomeScreen(navController,viewModel)
+        }
+
+
+        composable("register") {
+            val viewModel = hiltViewModel<RegisterViewModel>()
+            RegisterScreen(navController,viewModel)
         }
 
 
