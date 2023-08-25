@@ -48,8 +48,8 @@ fun RegisterScreen(navController: NavController, viewModel: RegisterViewModel) {
             Spacer(modifier = Modifier.height(70.dp))
 
             TextField(
-                value = viewModel.username,
-                onValueChange = { viewModel.username = it },
+                value = viewModel.email,
+                onValueChange = { viewModel.email = it },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(8.dp),
@@ -88,6 +88,7 @@ fun RegisterScreen(navController: NavController, viewModel: RegisterViewModel) {
 
             Button(
                 onClick = {
+                    viewModel.createNewUser()
                     if( viewModel.isOwner )
                         navController.navigate(Routes.OwnerScreen.route)
                     else
