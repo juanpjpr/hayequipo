@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">HayEquipo</string>
+    <string name="login_title">Fulbito</string>
+    <string name="login_user">Usuario</string>
+    <string name="login_pass">Password</string>
+    <string name="login_sign_in">Ingresar</string>
+    <string name="login_register">Registrar</string>
+
+    <string name="register_register_title">Registro</string>
+    <string name="register_email">Email</string>
+    <string name="register_user">Usuario</string>
+    <string name="register_pass">Contraseña</string>
+    <string name="register_email_invalid">Correo electrónico no válido</string>
+    <string name="register_pass_invalid">La contraseña debe tener al menos 6 caracteres</string>
+    <string name="register_are_you_owner">¿Eres dueño de una canchita?</string>
+    <string name="register_next">Siguiente</string>
+    <string name="register_register">Registrarse</string>
+
+    <string name="register_owner_court_name">Nombre canchita</string>
+    <string name="register_owner_address">Direccion</string>
+    <string name="register_owner_address_nro">Nro</string>
+    <string name="register_owner_register">Registrarse</string>
+    <string name="register_owner_images">Imagenes</string>
 </resources>

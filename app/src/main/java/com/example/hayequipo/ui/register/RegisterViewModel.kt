@@ -2,6 +2,8 @@ package com.example.hayequipo.ui.register
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -20,10 +22,19 @@ class RegisterViewModel @Inject constructor(private val register: Register) : Vi
     var email by mutableStateOf("")
     var isOwner by mutableStateOf(false)
 
+    var isEmailValid by mutableStateOf(true)
+    var isPasswordValid by  mutableStateOf(true)
+    var passwordVisible by  mutableStateOf(false)
+    var isButtonEnabled by  mutableStateOf(true)
+
     fun createNewUser(){
         val user = User(username, email, password, isOwner)
        viewModelScope.launch(Dispatchers.IO){
            register.createUser(user)
        }
+    }
+
+    fun updateEnabledButton() {
+        isButtonEnabled = isEmailValid && isPasswordValid
     }
 }

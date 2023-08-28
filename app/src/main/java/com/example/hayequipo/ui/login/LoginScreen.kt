@@ -19,16 +19,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.hayequipo.R
+import com.example.hayequipo.ui.FilledButton
+import com.example.hayequipo.ui.InputField
 import com.example.hayequipo.ui.Routes
+import com.example.hayequipo.ui.TitleText
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen (navController: NavController, viewmodel: LoginViewModel){
+fun LoginScreen(navController: NavController, viewmodel: LoginViewModel) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -41,53 +46,44 @@ fun LoginScreen (navController: NavController, viewmodel: LoginViewModel){
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("fulbito", color = Color.White, fontFamily = FontFamily.Monospace, fontSize = 60.sp)
-
+            TitleText(text = stringResource(R.string.login_title))
             Spacer(modifier = Modifier.height(50.dp))
-
-            TextField(
+            InputField(
                 value = "",
-                onValueChange = {},
-                textStyle = TextStyle(color = Color.Black),
-                placeholder = { Text("Usuario") },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(8.dp)
+                placeholder = stringResource(R.string.login_user),
+                onValueChange = {}
             )
-            TextField(
+            InputField(
                 value = "",
-                onValueChange = {},
-                textStyle = TextStyle(color = Color.Black),
-                placeholder = { Text("Contraseña") },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(8.dp)
+                placeholder = stringResource(R.string.login_pass),
+                onValueChange = {}
             )
-            Button(
-                onClick = { navController.navigate(Routes.HomeScreen.route) },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(8.dp)
-                    .height(48.dp)
-                    .background(Color.Black)
-            ) {
-                Text(text = "Ingresar", color = Color.White, fontFamily = FontFamily.Monospace, fontSize = 20.sp)
-            }
+            FilledButton(
+                text = stringResource(R.string.login_sign_in),
+                onClick = { navController.navigate(Routes.HomeScreen.route) }
+            )
             Spacer(modifier = Modifier.height(150.dp))
-            Button(
+            OutlinedButton(
+                text = stringResource(R.string.login_register),
                 onClick = { navController.navigate(Routes.RegisterScreen.route) }
-            ) {
-                Text(
-                    text = "Registrarse",
-                    color = Color.White,
-                    fontSize = 18.sp
-                )
-            }
-
+            )
         }
     }
 }
 
+
+@Composable
+fun OutlinedButton(text: String, onClick: () -> Unit) {
+    Button(
+        onClick = onClick
+    ) {
+        Text(
+            text = text,
+            color = Color.White,
+            fontSize = 18.sp
+        )
+    }
+}
 
 
 
