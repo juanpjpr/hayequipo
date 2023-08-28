@@ -9,7 +9,7 @@ interface CreateUseCase{
     suspend fun createUser(user: User)
 }
 
-class CreateNewUserUseCase @Inject constructor(private val userRepository: UserRepository) : CreateUseCase {
+class Register @Inject constructor(private val userRepository: UserRepository) : CreateUseCase {
     override suspend fun createUser(user: User) {
         val us=com.example.hayequipo.data.local.model.User(
             user = user.user,
@@ -18,6 +18,5 @@ class CreateNewUserUseCase @Inject constructor(private val userRepository: UserR
             owner = user.owner)
 
         val loginResult = userRepository.insertUser(us)
-
     }
 }
